@@ -57,3 +57,10 @@ canvas {
 .credit a:hover {
     text-decoration: underline;
 }
+body {
+    margin: 0;
+    overflow: hidden;
+    touch-action: none;
+}
+
+
