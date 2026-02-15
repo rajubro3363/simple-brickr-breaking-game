@@ -65,6 +65,21 @@ canvas.addEventListener("mousemove", function (e) {
     mouseY = e.clientY - rect.top;
 });
 
+// Touch control (Mobile support)
+canvas.addEventListener("touchmove", function (e) {
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    let x = touch.clientX - rect.left;
+
+    if (x > 0 && x < canvas.width) {
+        paddle.x = x - paddle.width / 2;
+    }
+
+    mouseX = x;
+    mouseY = touch.clientY - rect.top;
+
+    e.preventDefault();
+});
 
 // Space control
 document.addEventListener("keydown", e => {
@@ -275,3 +290,4 @@ function update() {
 }
 
 update();
+
